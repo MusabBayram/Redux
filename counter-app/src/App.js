@@ -6,6 +6,10 @@ function App() {
   return (
     <div className="App">
       <Counter />
+
+      <button>Decrement</button>
+      <button>Increment</button>
+
     </div>
   );
 }
