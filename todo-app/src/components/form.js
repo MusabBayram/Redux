@@ -1,6 +1,6 @@
 import React from 'react'
 
-function form() {
+function Form() {
   return (
     <form>
 		<input className="new-todo" placeholder="What needs to be done?" autoFocus />
@@ -8,4 +8,4 @@ function form() {
   )
 }
 
-export default form
+export default Form
