@@ -1,4 +1,5 @@
 import React from 'react'
+import ContentFooter from './ContentFooter'
 import TodoList from './TodoList'
 
 function Content() {
@@ -11,7 +12,7 @@ function Content() {
             </label>
             <TodoList />
         </section>
-        
+        <ContentFooter />
     </>
   )
 }

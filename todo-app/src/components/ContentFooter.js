@@ -4,7 +4,7 @@ function ContentFooter() {
   return (
     <footer className="footer">
 		<span className="todo-count">
-			<strong>2</strong>
+			<strong>2 </strong>
 			items left
 		</span>
 
