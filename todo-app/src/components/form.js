@@ -10,7 +10,9 @@ function Form() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    dispatch({ id: '3', title, completed: false})
+    dispatch(addTodo({ id: '3', title, completed: false}))
+    
+    setTitle('')
   }
   return (
     <form onSubmit={handleSubmit}>
