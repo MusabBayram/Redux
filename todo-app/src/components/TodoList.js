@@ -11,7 +11,12 @@ function TodoList() {
 			{items.map((item) => (
 				<li key={item.id} className={item.completed ? 'completed' : ''}>
 					<div className="view">
-						<input className="toggle" type="checkbox" onChange={dispatch(toggle({id: item.id}))}/>
+						<input 
+							className="toggle" 
+							type="checkbox" 
+							onChange={dispatch(toggle({id: item.id}))} 
+							checked={item.completed}
+						/>
 						<label>{item.title}</label>
 						<button className="destroy"></button>
 					</div>
