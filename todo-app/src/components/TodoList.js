@@ -15,8 +15,9 @@ function TodoList() {
 		}
 	}
 
+	filtered = items;
 	if(activeFilter !== 'all'){
-		filtered = items.filter((todo) => activeFilter === 'active' ? todo.completed === false && todo : todo.completed === true &&todo);
+		filtered = items.filter((todo) => activeFilter === 'active' ? todo.completed === false : todo.completed === true);
 	}
 
   return (
