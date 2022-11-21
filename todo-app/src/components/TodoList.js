@@ -18,7 +18,7 @@ function TodoList() {
 							checked={item.completed}
 						/>
 						<label>{item.title}</label>
-						<button className="destroy" onClick={dispatch(destroy({id: item.id}))}></button>
+						<button className="destroy" onClick={() => dispatch(destroy({id: item.id}))}></button>
 					</div>
 				</li>
 			))}
