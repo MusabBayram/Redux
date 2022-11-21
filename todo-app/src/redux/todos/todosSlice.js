@@ -25,7 +25,12 @@ export const todosSlice = createSlice({
 
             const item = state.items.find((item) => item.id === id);
             item.completed = !item.completed;
-        }    
+        }    ,
+        destroy: (state, action) => {
+            const id  = action.payload;
+            const filtered = state.items.filter((item) => item.id !== id);
+            state.items = filtered;
+        },
 },
 });
 
