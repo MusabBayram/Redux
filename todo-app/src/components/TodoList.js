@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { toggle } from '../redux/todos/todosSlice';
+import { toggle, destroy } from '../redux/todos/todosSlice';
 
 function TodoList() {
 	const dispatch = useDispatch();
@@ -18,7 +18,7 @@ function TodoList() {
 							checked={item.completed}
 						/>
 						<label>{item.title}</label>
-						<button className="destroy"></button>
+						<button className="destroy" onClick={dispatch(destroy({id: item.id}))}></button>
 					</div>
 				</li>
 			))}
