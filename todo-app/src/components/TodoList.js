@@ -6,6 +6,12 @@ function TodoList() {
 	const dispatch = useDispatch();
 	const items = useSelector((state) => state.todos.items);
 
+	const handleDestroy = (id) => {
+		if(window.confirm('Are you sure?')){
+			dispatch(destroy({id}))
+		}
+	}
+
   return (
     <ul className="todo-list">
 			{items.map((item) => (
@@ -18,7 +24,7 @@ function TodoList() {
 							checked={item.completed}
 						/>
 						<label>{item.title}</label>
-						<button className="destroy" onClick={() => dispatch(destroy({id: item.id}))}></button>
+						<button className="destroy" onClick={() => handleDestroy(item.id)}></button>
 					</div>
 				</li>
 			))}
