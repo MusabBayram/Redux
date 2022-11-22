@@ -9,7 +9,7 @@ function TodoList() {
 
 	const handleDestroy = (id) => {
 		if(window.confirm('Are you sure?')){
-			dispatch(destroy({id}))
+			dispatch(destroy(id))
 		}
 	}
 
