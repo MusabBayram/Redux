@@ -36,7 +36,7 @@ export const todosSlice = createSlice({
             state.activeFilter = action.payload
         },
         clearCompleted: (state) => {
-            const filter = state.items.filter((item) => item.completed === false);
+            const filtered = state.items.filter((item) => item.completed === false);
             state.items = filtered;
         }
 },
