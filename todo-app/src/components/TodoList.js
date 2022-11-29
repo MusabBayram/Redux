@@ -8,6 +8,7 @@ function TodoList() {
 	const dispatch = useDispatch();
 	const filteredTodos = useSelector(selectFilteredTodos);
 	const isLoading = useSelector((state) => state.todos.isLoading);
+	const error = useSelector((state) => state.todos.error);
 
 	useEffect(() => {
 		dispatch(getTodosAsync());
@@ -21,6 +22,10 @@ function TodoList() {
 
 	if(isLoading) {
 		return <Loading />;
+	}
+
+	if(error) {
+		return <Error message={error} />;
 	}
 
   return (
