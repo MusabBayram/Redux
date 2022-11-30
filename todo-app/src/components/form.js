@@ -6,7 +6,8 @@ import Loading from './Loading';
 function Form() {
   const [title, setTitle] = useState('');
   const dispatch = useDispatch();
-  const isLoading = useSelector(state => state.todos.addNewIsTodoLoading)
+  const isLoading = useSelector(state => state.todos.addNewIsTodoLoading);
+  const error = useSelector(state => state.todos.addNewIsTodoError);
 
   const handleSubmit = async (e) => {
     if(!title) return;
@@ -17,6 +18,12 @@ function Form() {
     
     setTitle('')
   }
+
+  if(error){
+    alert(error);
+    return;
+  }
+
   return (
     <form onSubmit={handleSubmit} style={{ display: 'flex', alignItems: 'center' }}>
 		  <input 
