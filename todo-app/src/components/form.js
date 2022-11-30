@@ -5,7 +5,7 @@ import { addTodoAsync } from '../redux/todos/todosSlice';
 function Form() {
   const [title, setTitle] = useState('');
   const dispatch = useDispatch();
-  const isLoading = useSelector(state => state.addNewIsTodoLoading)
+  const isLoading = useSelector(state => state.todos.addNewIsTodoLoading)
 
   const handleSubmit = async (e) => {
     if(!title) return;
@@ -20,7 +20,10 @@ function Form() {
     <form onSubmit={handleSubmit} style={{ display: 'flex', alignItems: 'center' }}>
 		  <input className="new-todo" placeholder="What needs to be done?" autoFocus value={title} onChange={(e) => setTitle(e.target.value)} />
 
-      <span style={{ paddingRight: 10 }}>Loading...</span>
+    {
+      isLoading && <span style={{ paddingRight: 10 }}>Loading...</span>
+    }
+      
 	</form>
   )
 }
