@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addTodoAsync } from '../redux/todos/todosSlice';
+import Error from './Error';
 import Loading from './Loading';
 
 function Form() {
@@ -34,9 +35,8 @@ function Form() {
         onChange={(e) => setTitle(e.target.value)} 
       />
 
-    {
-      isLoading && <Loading />
-    }
+    {isLoading && <Loading />}
+    {error && <Error message={error} />}
       
 	</form>
   )
