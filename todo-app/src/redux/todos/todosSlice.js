@@ -18,6 +18,8 @@ export const todosSlice = createSlice({
         isLoading: false,
         error: null,
         activeFilter: 'all',
+        addNewTodoLoading: false,
+        addNewTodoError: null
     },
     reducers: {
         toggle: (state, action)  => {
@@ -53,9 +55,17 @@ export const todosSlice = createSlice({
             state.error = action.error.message;
         },
         //add todo
+        [addTodoAsync.pending]: (state, action) => {
+            state.addNewTodoLoading = true;
+        },
         [addTodoAsync.fulfilled]: (state, action) => {
             state.items.push(action.payload);
+            state.addNewTodoLoading = false;
         },
+        [addTodoAsync.rejected]: (state, action) => {
+            state.addNewTodoLoading = false;
+            state.addNewTodoError = action.error.message;
+        }
     }
 });
 
