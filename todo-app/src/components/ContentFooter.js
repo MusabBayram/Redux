@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { changeActiveFilter, clearCompleted, selectTodos } from '../redux/todos/todosSlice';
+import { changeActiveFilter, clearCompleted, selectTodos } from '../redux/todos/services';
 
 function ContentFooter() {
   const dispatch = useDispatch()
