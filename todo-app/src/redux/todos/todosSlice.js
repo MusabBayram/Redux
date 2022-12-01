@@ -89,6 +89,6 @@ export const selectFilteredTodos = (state) =>{
     )
 }
 
-export const { toggle, destroy, changeActiveFilter, clearCompleted } = todosSlice.actions;
+export const { destroy, changeActiveFilter, clearCompleted } = todosSlice.actions;
 
 export default todosSlice.reducer;
