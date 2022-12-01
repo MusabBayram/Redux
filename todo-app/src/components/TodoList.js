@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { destroy, selectFilteredTodos, getTodosAsync, toggleTodoAsync } from '../redux/todos/todosSlice';
+import { removeTodoAsync, selectFilteredTodos, getTodosAsync, toggleTodoAsync } from '../redux/todos/todosSlice';
 import Error from './Error';
 import Loading from './Loading';
 
@@ -15,9 +15,9 @@ function TodoList() {
 		dispatch(getTodosAsync());
 	}, [dispatch]);
 
-	const handleDestroy = (id) => {
+	const handleDestroy = async (id) => {
 		if(window.confirm('Are you sure?')){
-			dispatch(destroy(id))
+			await dispatch(removeTodoAsync(id))
 		}
 	}
 
