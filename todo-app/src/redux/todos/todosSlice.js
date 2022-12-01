@@ -1,25 +1,6 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createSlice } from "@reduxjs/toolkit";
+import { addTodoAsync, getTodosAsync, removeTodoAsync, toggleTodoAsync } from "./services";
 
-export const getTodosAsync = createAsyncThunk('todos/getTodosAsync', async () => {
-    const res = await axios('http://localhost:7000/todos');
-    return res.data;
-});
-
-export const addTodoAsync = createAsyncThunk('todos/addTodosAsync', async (data) => {
-    const res = await axios.post(`${process.env.REACT_APP_API_BASE_ENDPOINT}/todos`, data);
-    return res.data;
-});
-
-export const toggleTodoAsync = createAsyncThunk('todos/toggleTodoAsync', async ({id, data}) => {
-    const res = await axios.patch(`${process.env.REACT_APP_API_BASE_ENDPOINT}/todos/${id}`, data);
-    return res.data;
-});
-
-export const removeTodoAsync = createAsyncThunk('todos/removeTodoAsync', async (id) => {
-    await axios.delete(`${process.env.REACT_APP_API_BASE_ENDPOINT}/todos/${id}`);
-    return id;
-});
 
 export const todosSlice = createSlice({
     name: 'todos',
@@ -27,7 +8,7 @@ export const todosSlice = createSlice({
         items: [],
         isLoading: false,
         error: null,
-        activeFilter: 'all',
+        activeFilter: localStorage.getItem('activeFilter'),
         addNewTodo: {
             isLoading: false,
             error: false
