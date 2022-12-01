@@ -11,6 +11,11 @@ export const addTodoAsync = createAsyncThunk('todos/addTodosAsync', async (data)
     return await res.data;
 });
 
+export const toggleTodoAsync = createAsyncThunk('todos/toggleTodoAsync', async ({id, data}) => {
+    const res = await axios.patch(`${process.env.REACT_APP_API_BASE_ENDPOINT}/todos/${id}`, data);
+    return await res.data;
+});
+
 export const todosSlice = createSlice({
     name: 'todos',
     initialState: {
@@ -22,12 +27,12 @@ export const todosSlice = createSlice({
         addNewTodoError: null
     },
     reducers: {
-        toggle: (state, action)  => {
-            const { id } = action.payload;
+        // toggle: (state, action)  => {
+        //     const { id } = action.payload;
 
-            const item = state.items.find((item) => item.id === id);
-            item.completed = !item.completed;
-        }    ,
+        //     const item = state.items.find((item) => item.id === id);
+        //     item.completed = !item.completed;
+        // },
         destroy: (state, action) => {
             const id  = action.payload;
             const filtered = state.items.filter((item) => item.id !== id);
@@ -65,6 +70,10 @@ export const todosSlice = createSlice({
         [addTodoAsync.rejected]: (state, action) => {
             state.addNewTodoIsLoading = false;
             state.addNewTodoError = action.error.message;
+        },
+        // toggle todo
+        [toggleTodoAsync.fulfilled]: (state, action) => {
+            console.log(action.payload);
         }
     }
 });
