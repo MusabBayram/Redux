@@ -17,7 +17,7 @@ export const toggleTodoAsync = createAsyncThunk('todos/toggleTodoAsync', async (
 });
 
 export const removeTodoAsync = createAsyncThunk('todos/removeTodoAsync', async (id) => {
-    const res = await axios.delete(`${process.env.REACT_APP_API_BASE_ENDPOINT}/${id}`);
+    const res = await axios.delete(`${process.env.REACT_APP_API_BASE_ENDPOINT}/todos/${id}`);
     return res.data;
 });
 
