@@ -8,6 +8,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import Home from './pages/Home';
 
 
 function App() {
@@ -31,21 +32,15 @@ function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Routes>
-          <Route path='/about' element={<About />}>
-          </Route>
-          <Route path='/users' element={<Users />}>
-          </Route>
-          <Route path='/' element={<Home />}>
-          </Route>
+          <Route path='/about' element={<About />} />
+          <Route path='/users' element={<Users />} />
+          <Route path='/' element={<Home />} />
         </Routes>
       </div>
     </Router>
   );
 }
 
-function Home() {
-  return <h2>Home</h2>;
-}
 
 function About() {
   return <h2>About</h2>;
