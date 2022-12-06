@@ -21,7 +21,7 @@ function Home() {
     return <Loading />
   }
   if(error) {
-    return <Error message={message} /> 
+    return <Error message={error} /> 
   }
   dispatch(fetchCharacters());
   return (

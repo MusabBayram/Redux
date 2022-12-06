@@ -22,7 +22,7 @@ export const charactersSlice = createSlice({
             state.items = action.payload;
             state.isLoading = false;
         },
-        [fetchCharacters.fulfilled]: (state,action) => {
+        [fetchCharacters.rejected]: (state,action) => {
             state.isLoading = false;
             state.error = action.error.message;
         }
